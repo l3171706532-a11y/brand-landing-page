@@ -1,0 +1,21 @@
+# Python
+*.py
+*.pyc
+__pycache__/
+*.json
+
+# Project files
+.agents/
+.claude/
+brand_philosophy_outputs/
+personal_brand_outputs/
+stock-analysis/
+images-optimized/
+
+# Other
+*.exe
+*.lnk
+*.bat
+*.txt
+*.md
+!README.md

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BURTON成都IN99旗舰店 - 项目详情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #ffffff;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            gap: 12px;
+            color: #764ba2;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 60vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🏂';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero .tags {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero .tag {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2d3748;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        /* Overview Grid */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .overview-item {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .overview-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .overview-item h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .overview-item p {
+            color: #718096;
+            line-height: 1.8;
+        }
+
+        /* Content Block */
+        .content-block {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .content-block h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .content-block p {
+            color: #4a5568;
+            line-height: 1.9;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .content-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-block li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #4a5568;
+        }
+
+        .content-block li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-image {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .highlight-box h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .highlight-box p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .content-block {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="brand-landing.html" class="back-btn">
+            ← 返回首页
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>BURTON成都IN99旗舰店</h1>
+            <p class="subtitle">围绕"雪"与"可持续未来"主题，打造「一城异世界」的沉浸式体验空间</p>
+            <div class="tags">
+                <span class="tag">可持续设计</span>
+                <span class="tag">空间叙事</span>
+                <span class="tag">品牌体验</span>
+                <span class="tag">商业空间</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Project Overview -->
+        <div class="section">
+            <h2 class="section-title">项目概览</h2>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h3>项目名称</h3>
+                    <p>BURTON成都IN99旗舰店</p>
+                </div>
+                <div class="overview-item">
+                    <h3>项目类型</h3>
+                    <p>商业空间设计 / 品牌体验</p>
+                </div>
+                <div class="overview-item">
+                    <h3>设计理念</h3>
+                    <p>可持续发展 / 空间叙事</p>
+                </div>
+                <div class="overview-item">
+                    <h3>核心价值</h3>
+                    <p>PEOPLE, PLANET, SPORTS</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design Concept -->
+        <div class="section">
+            <h2 class="section-title">设计理念</h2>
+            <div class="content-block">
+                <h3>总述</h3>
+                <p>整体设计从自然环境中提取灵感，围绕"雪"的主题和"可持续发展未来世界"的概念展开叙述，将BURTON成都IN99店打造成为「一城异世界」的载体。满足零售功能之余，回归空间本质，强化访客体验和空间记忆，传递BURTON品牌所秉承的精神内涵：PEOPLE, PLANET, SPORTS。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>设计愿景</h4>
+                <p>人们对运动的热爱将精神意志同足迹一并带至原始自然，最终回归自然与人本身。我们希望通过对IN99门店的设计，还原自然环境，重塑场景互动，让城市中人紧绷的神经得以放松一瞬，打开感官，在故事共鸣与精神融合中，感受与BURTON、与雪世界的共鸣。</p>
+            </div>
+        </div>
+
+        <!-- Facade Design -->
+        <div class="section">
+            <h2 class="section-title">外立面 - 回收再利用的可持续设计</h2>
+            <div class="content-block">
+                <p>临街入口被设计为一大吸睛点，灵感源于对滑雪运动的元素提取，以材质转译和动静形态具象化的呈现方式带给观者强烈视觉冲击。</p>
+                <p>品牌自带的户外、运动、自然基因，在设计外立面时，引发了对于可持续发展的思考。滑雪作为当下热门运动，在吸引人气的同时，也给所在地的环境制造了一系列考验，因此团队开始思考如何将一些雪场的废弃物、以及由于产品更迭而闲置的滑雪产品融入到我们的设计当中，赋予废弃产品新的生命力。</p>
+
+                <div class="highlight-box">
+                    <h4>可持续材料应用</h4>
+                    <p>外立面取材于原商家拆除所建渣及BURTON提供的废弃固定器、雪鞋等雪具，通过技术手段将上述的废弃物、旧物进行了技术降解、混合再利用，最终形成独特的城市记忆。</p>
+                </div>
+
+                <p>提取雪地特有肌理，通过线性阵列排序，结合再生材质的肌理，将雪场景象再现都市。以拟自然形态呈现的门洞型入口与周遭的都市氛围形成强烈冲突，在纯粹的白色语境下，打造御雪秘境，吸引人进入探索。</p>
+            </div>
+        </div>
+
+        <!-- Community Space -->
+        <div class="section">
+            <h2 class="section-title">Community - 品牌基因的空间转译</h2>
+            <div class="content-block">
+                <p>正如查尔斯·伊姆斯所言，「设计是一种以最佳实现特定目的的方式来布置元素的计划」，基于BURTON作为单板运动推广及产品研发的奠基地位，在设计过程中，怎样选择主材表达对历史的回顾以及对未来的衔接成为设计师主要的关注点。</p>
+
+                <h3>材质语言</h3>
+                <ul>
+                    <li><strong>火烧木</strong> - 呼应雪场环境中的自然元素</li>
+                    <li><strong>金属</strong> - 象征工业时代与现代建筑</li>
+                    <li><strong>Jake Blue</strong> - BURTON品牌专属色，强化品牌DNA</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>Jake Burton工坊原型</h4>
+                    <p>中心区域以BURTON品牌创始者Jake Burton最初制作雪板的工坊为原型，打造的Community社群活动区域，其功能为可供滑雪爱好者们交流与开展活动，同时作为品牌pop up的灵活区域。</p>
+                    <p>设计团队通过结合中国传统榫卯结构与钢铁森林的现代建筑元素，隐喻着品牌的传承与发展，而金属与木，也恰好是雪板的制作主材。整个室内空间围绕此精神之源展开，复古怀旧的美式森林小屋即视感与周遭的氛围形成视觉冲突，吸引人去了解品牌背后的故事。</p>
+                </div>
+
+                <p>团队插画师Chuan为BURTON Community进行了一系列创作，将品牌历史与冰雪运动潮流进行了更具有趣味性的视觉传达，为空间增加了艺术氛围。</p>
+            </div>
+        </div>
+
+        <!-- Immersive Experience -->
+        <div class="section">
+            <h2 class="section-title">空间 - 沉浸式购物体验</h2>
+            <div class="content-block">
+                <h3>空间动线设计</h3>
+                <p>室内顶部环型灯带轨道仿照雪场缆车轨道，呼应设计动线，圆润弧度平衡材质硬度，空间在此刻转为流体。</p>
+
+                <h3>陈列系统</h3>
+                <p>道具方面，采用灵活装配的结构，贴合零售对于商品陈列与季度更迭的变换需求，材质选用拉丝金属结合磨砂亚克力，再次呼应冰雪主题。品牌专属色Jake Blue蓝作为点缀，在道具、软装、配饰上进行再次品牌DNA强化。</p>
+
+                <div class="highlight-box">
+                    <h4>互动装置</h4>
+                    <p>商场内入口，互动装置的设置以及象征着滑雪运动精神的3D打印人物"minjin"则作为另一隐喻，表达了当下人们自我表达的追求，在聚光灯下，每一个消费者都是雪场上的主角。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Images -->
+        <div class="section">
+            <h2 class="section-title">项目实景</h2>
+            <div class="image-gallery">
+                <div class="gallery-image">
+                    <img src="images/1-外立面.png" alt="BURTON外立面 - 可持续材料应用">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/2.png" alt="入口门洞设计">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/5.png" alt="室内陈列系统">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/6.jpg" alt="品牌展示区">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/11.png" alt="空间整体视角">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/12.png" alt="材质细节展示">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/13.jpg" alt="Community社群活动区">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/14.jpg" alt="Jake Burton工坊原型空间">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/15.jpg" alt="环型灯带轨道设计">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/16.jpg" alt="商品陈列细节">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/17.jpg" alt="互动装置区域">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/_LJR1058.png" alt="空间体验细节">
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Drawings -->
+        <div class="section">
+            <h2 class="section-title">设计图纸</h2>
+            <div class="image-gallery">
+                <div class="gallery-image">
+                    <img src="images/平面图.jpg" alt="平面图">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/轴测图.jpg" alt="轴测图">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/外立面创作灵感.jpg" alt="外立面创作灵感">
+                </div>
+                <div class="gallery-image">
+                    <img src="images/外立面制作说明图.jpg" alt="外立面制作说明">
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Info -->
+        <div class="section">
+            <h2 class="section-title">项目信息</h2>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h3>项目地点</h3>
+                    <p>四川成都高新区天府大道中段1199号银泰中心IN99</p>
+                </div>
+                <div class="overview-item">
+                    <h3>设计时间</h3>
+                    <p>2022年6月</p>
+                </div>
+                <div class="overview-item">
+                    <h3>完工时间</h3>
+                    <p>2022年11月</p>
+                </div>
+                <div class="overview-item">
+                    <h3>项目面积</h3>
+                    <p>265㎡</p>
+                </div>
+                <div class="overview-item">
+                    <h3>主要材料</h3>
+                    <p>废弃雪具、建筑废渣、GRG、不锈钢、PU石皮、火烧木、亚克力</p>
+                </div>
+                <div class="overview-item">
+                    <h3>设计团队</h3>
+                    <p>SA&BOO Studio<br>主创：Lisa Liu, Pavel Zhu<br>艺术指导：Bonnie Liao</p>
+                </div>
+                <div class="overview-item">
+                    <h3>摄影</h3>
+                    <p>聿空间摄影 YU Studio</p>
+                </div>
+                <div class="overview-item">
+                    <h3>施工管理</h3>
+                    <p>SA&BOO Studio</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2024 品牌策划服务 | <a href="brand-landing.html">返回首页</a></p>
+    </div>
+</body>
+</html>
