@@ -430,18 +430,84 @@
             margin-bottom: 1rem;
         }
 
-        .contact p {
+        .contact > p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             opacity: 0.95;
         }
 
-        .contact-form {
-            max-width: 600px;
+        .contact-wrapper {
+            max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            text-align: left;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #f5f5f5;
+            font-weight: 500;
+        }
+
+        .contact-item p {
+            font-size: 1.3rem;
+            color: white;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .wechat-qr {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .wechat-qr img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: white;
+            padding: 10px;
+        }
+
+        .wechat-qr p {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .contact-form {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            text-align: left;
+        }
+
+        @media (max-width: 968px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
         .form-group {
@@ -708,38 +774,60 @@
             <h2>开始您的品牌之旅</h2>
             <p>留下您的联系方式，我们将在24小时内与您取得联系</p>
 
-            <div data-fs-success style="margin-bottom: 20px; padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; color: white; text-align: center; font-weight: 500; display: none;">
-                ✅ 已收到您的咨询请求！我们将在24小时内与您联系。
+            <div class="contact-wrapper">
+                <!-- 联系方式 -->
+                <div class="contact-info">
+                    <h3>联系我们</h3>
+
+                    <div class="contact-item">
+                        <h4>📞 联系电话</h4>
+                        <p>13340235496</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="wechat-qr">
+                            <img src="images/wechat-qr.jpg" alt="微信二维码">
+                            <p>扫码添加微信咨询</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 表单 -->
+                <div>
+                    <div data-fs-success style="margin-bottom: 20px; padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; color: white; text-align: center; font-weight: 500; display: none;">
+                        ✅ 已收到您的咨询请求！我们将在24小时内与您联系。
+                    </div>
+
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label>您的姓名</label>
+                            <input type="text" name="name" required placeholder="请输入您的姓名" data-fs-field>
+                            <span data-fs-error="name" style="color: #ffcccc; font-size: 0.9rem; margin-top: 5px; display: block;"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>联系电话</label>
+                            <input type="tel" name="phone" required placeholder="请输入您的电话" data-fs-field>
+                            <span data-fs-error="phone" style="color: #ffcccc; font-size: 0.9rem; margin-top: 5px; display: block;"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>公司名称</label>
+                            <input type="text" name="company" placeholder="请输入公司名称（选填）" data-fs-field>
+                        </div>
+
+                        <div class="form-group">
+                            <label>项目需求</label>
+                            <textarea name="message" required placeholder="请简单描述您的品牌需求" data-fs-field></textarea>
+                            <span data-fs-error="message" style="color: #ffcccc; font-size: 0.9rem; margin-top: 5px; display: block;"></span>
+                        </div>
+
+                        <div data-fs-error style="margin-bottom: 15px; padding: 15px; background: rgba(255, 100, 100, 0.3); border-radius: 8px; color: white; text-align: center; display: none;"></div>
+
+                        <button type="submit" class="submit-button" data-fs-submit-btn>提交咨询</button>
+                    </form>
+                </div>
             </div>
-
-            <form id="contact-form" class="contact-form">
-                <div class="form-group">
-                    <label>您的姓名</label>
-                    <input type="text" name="name" required placeholder="请输入您的姓名" data-fs-field>
-                    <span data-fs-error="name" style="color: #ffcccc; font-size: 0.9rem; margin-top: 5px; display: block;"></span>
-                </div>
-
-                <div class="form-group">
-                    <label>联系电话</label>
-                    <input type="tel" name="phone" required placeholder="请输入您的电话" data-fs-field>
-                    <span data-fs-error="phone" style="color: #ffcccc; font-size: 0.9rem; margin-top: 5px; display: block;"></span>
-                </div>
-
-                <div class="form-group">
-                    <label>公司名称</label>
-                    <input type="text" name="company" placeholder="请输入公司名称（选填）" data-fs-field>
-                </div>
-
-                <div class="form-group">
-                    <label>项目需求</label>
-                    <textarea name="message" required placeholder="请简单描述您的品牌需求" data-fs-field></textarea>
-                    <span data-fs-error="message" style="color: #ffcccc; font-size: 0.9rem; margin-top: 5px; display: block;"></span>
-                </div>
-
-                <div data-fs-error style="margin-bottom: 15px; padding: 15px; background: rgba(255, 100, 100, 0.3); border-radius: 8px; color: white; text-align: center; display: none;"></div>
-
-                <button type="submit" class="submit-button" data-fs-submit-btn>提交咨询</button>
-            </form>
         </div>
     </section>
 
