@@ -53,18 +53,31 @@
             padding: 0 20px;
         }
 
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease;
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.95;
-            animation: fadeInUp 1s ease 0.2s both;
+            animation: fadeInUp 1s ease 0.4s both;
         }
 
         .cta-button {
@@ -77,7 +90,7 @@
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 0.4s both;
+            animation: fadeInUp 1s ease 0.6s both;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
@@ -321,15 +334,22 @@
         }
 
         .team-avatar {
-            width: 120px;
-            height: 120px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f0f0f0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
             margin: 0 auto 25px;
+            overflow: hidden;
+        }
+
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .team-member h3 {
@@ -474,6 +494,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
+            <div class="hero-logo">
+                <img src="images/logo.jpg" alt="SA&BOO Studio">
+            </div>
             <h1>让品牌更有价值</h1>
             <p>专业品牌策划服务 · 从定位到落地的完整解决方案</p>
             <a href="#contact" class="cta-button">立即咨询</a>
@@ -629,7 +652,9 @@
 
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-avatar">👩‍💼</div>
+                    <div class="team-avatar">
+                        <img src="images/bonnie.jpg" alt="Bonnie Liao">
+                    </div>
                     <h3>Bonnie Liao</h3>
                     <div class="team-role">创始人 / 品牌设计 / 软装设计</div>
                     <p class="team-bio">毕业于美国威斯康星州立大学，曾在美国航天科技国防公司担任艺术总监。2018年在纽约创办SA&BOO Studio，主攻民宿设计、文创品牌打造方向。</p>
@@ -641,7 +666,9 @@
                 </div>
 
                 <div class="team-member">
-                    <div class="team-avatar">👨‍🎨</div>
+                    <div class="team-avatar">
+                        <img src="images/pavel.jpg" alt="Pavel Zhu">
+                    </div>
                     <h3>Pavel Zhu</h3>
                     <div class="team-role">联合创始人 / 设计总监</div>
                     <p class="team-bio">本科毕业于中央美术学院，硕士毕业于意大利米兰理工大学。喜欢将综合材料、装置艺术、潮玩文化等融入方案，热衷于打破常规，将空间、文创、时尚等概念融入设计。</p>
